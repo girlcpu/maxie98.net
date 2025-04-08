@@ -50,6 +50,15 @@
 				padding: 0.15em;
 			}
 
+			.banner.love {
+				font-size: 1.25rem; /* 20px */
+				background-color: pink;
+				color: orangered;
+				padding: 0.5rem 0;
+				font-family: "Bradley Hand ITC", cursive;
+				font-weight: 700;
+			}
+
 			h1.title.main {
 				font-size: 3rem;
 				margin: 0;
@@ -111,6 +120,13 @@
 
 			.btns img {
 				user-select: none;
+			}
+
+			#banner-section {
+				height: 256px;
+				background-image: url("/img/bg/fire.gif");
+				background-size: 150% 80%;
+				background-position: 50% 100%;
 			}
 		</style>
 	</head>
@@ -174,7 +190,7 @@
 				</hgroup>
 			</main>
 
-			<footer class="bottombar">
+			<footer class="bottombar" style="position: relative">
 				<!-- credits -->
 				<h2 style="margin: 0">webpage credits</h2>
 				<ul class="credits">
@@ -248,7 +264,54 @@
 						/>
 					</li>
 				</ul>
+
+				<textarea
+					style="
+						width: 12px;
+						height: 12px;
+						position: absolute;
+						bottom: -12px;
+						right: -12px;
+						/* cursor: nwse-resize; */
+						resize: horizontal;
+						background-color: transparent;
+						border: none;
+					"
+					oninput="textinput()"
+					id="textbox"
+					role="text"
+					tabindex="-1"
+				></textarea>
 			</footer>
+			<div id="banner-section" style="display: none">
+				<marquee class="love banner">
+					welcome to the FIERY BASEMENT CELLAR of my web site !!! >:D >:D >:D
+				</marquee>
+
+				<img src="/img/ani/heart3.gif" style="width: 400px; height: 200px" />
+				<img
+					src="/img/ani/nose.gif"
+					style="width: 84px; height: 184px; cursor: crosshair"
+					title="you know what this is about"
+				/>
+				<img
+					src="/img/ani/BlueAngel-e.gif"
+					style="width: 400px; height: 214px"
+				/>
+			</div>
 		</div>
 	</body>
+	<script>
+		function textinput() {
+			var textarea = document.getElementById("textbox");
+			var input = textarea.value;
+
+			if (input != atob("aGl5YSBtYXRlIGh1bmdyeSBqYWNrcw==")) return;
+			else {
+				var banner = document.getElementById("banner-section");
+				banner.style.display = "block";
+				textarea.style.display = "none";
+			}
+		}
+	</script>
 </html>
